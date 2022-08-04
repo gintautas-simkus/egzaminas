@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Schools</title>
+		<div th:replace='_head'></div>
+	</head>
+	<body class='container'>
+		<div class='row'></div>
+			<div class='col-2'></div>
+			<div class='col-8'>
+				<div th:replace='_menu'></div>
+				<h3>Schools</h3>
+				<form action="" method='get'>
+					<input type='text' name='search' placeholder="Ieškoti">
+					<input type='submit' value='Filtruoti'>
+				</form>
+				<table>
+					<tr>
+						<th>Pavadinimas</th>
+						<th>Kodas</th>
+						<th>Adresas</th>
+					</tr>
+					<tr class='irasas' th:each='school : ${schools}'>
+						<td><a th:href="@{'/schools/' + ${school.getId()}}" th:text='${school.getName()}'></a></td>
+						<td th:text='${school.getCode()}'></td>
+						<td th:text='${school.getAddress()}'></td>
+					</tr>
+				</table>
+			<div class='col-2'></div>
+		</div>
+	</body>
+</html>

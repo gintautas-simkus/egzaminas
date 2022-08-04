@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title th:text="${school.getName()}"></title>
+		<div th:replace='_head'></div>
+	</head>
+	<body class='container'>
+		<div class='row'>
+			<div class='col-2'></div>
+			<div class='col-8'>
+				<div th:replace='_menu'></div>
+				<h3>Registracija</h3>
+				<form action='/applications' method='post'>
+					<input type="text" placeholder='Vardas' name='name'>
+					<input type='hidden' name='school_id' th:value='${school.getId()}'>
+					<input type='hidden' name='_csrf' th:value='${_csrf.token}'>
+					<input type='submit' class='btn btn-primary' value="Registruoti">
+				</form>
+			<div class='col-2'></div>
+		</div>
+	</body>
+</html>
